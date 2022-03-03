@@ -1,2 +1,2 @@
 # CoffeeHour
-A website built around a relaxed social experience. 
+A website built with a relaxed social experience in mind
