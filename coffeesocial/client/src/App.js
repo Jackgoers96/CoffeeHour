@@ -1,14 +1,32 @@
-import logo from './logo.svg';
+import coffee from './images/coffee.png';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './App.css';
 
 function App() {
   return (
+    <Router>
+      <Switch>
+        <p>This is the top of the page where some stuff happens or whatever.</p>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+            </li>
+        </ul>
+      </Switch>
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={coffee} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Welcome to my Future Webpage! Sit down, grab a coffee and browse a new way to social. Don't mind the mess while we get it together.
         </p>
+        
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -19,6 +37,12 @@ function App() {
         </a>
       </header>
     </div>
+    <Switch>
+      <div>
+        <p>Bullshit goes here</p>
+      </div>
+      </Switch>
+    </Router>
   );
 }
 
