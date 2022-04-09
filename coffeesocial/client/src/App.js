@@ -6,7 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import Home from "./Pages/Home";
 import './App.css';
 
 function App() {
@@ -14,9 +14,12 @@ function App() {
     <Router>
       <Switch>
         <p>This is the top of the page where some stuff happens or whatever.</p>
+        <br/>
+
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Route path="/Home"><Home />
+            </Route>
             </li>
         </ul>
       </Switch>
