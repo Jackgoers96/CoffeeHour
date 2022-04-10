@@ -1,0 +1,11 @@
+#footerDiv {
+  display: flex;
+  justify-content: center;
+}
+.footerIcons {
+  justify-content: center;
+  padding: 1%;
+}
+.socials :hover {
+  color: orangered;
+}
