@@ -1,8 +1,10 @@
 .pageBody {
-  display: flexbox;
-  background-color: black;
+  display: flex;
+  background-color: grey;
   color: whitesmoke;
   min-height: 75em;
+  flex-direction: column;
 }
 .signUpDivOne {
+  background-color: blue;
 }

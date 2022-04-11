@@ -1,13 +1,14 @@
-body {
-  background-color: aqua;
-}
 #loginBadge :hover {
-  color: pink;
+  color: #005050;
+  background-color: inherit;
 }
 #HomeBadge :hover {
-  color: pink;
+  color: #005050;
+  background-color: inherit;
 }
 .headerDiv {
   display: flex;
   justify-content: space-between;
+  min-height: 8em;
+  background: linear-gradient(black, grey);
 }
