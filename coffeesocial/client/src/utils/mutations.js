@@ -12,9 +12,9 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const ADD_FOLDER = gql`
-    mutation addFolder($folderName: String!) {
-        addFolder(folderName: $folderName) {
+export const ADD_COMMENT = gql`
+    mutation addComment($CommentText: String!) {
+        addComment(commentText: $commentText) {
         _id
            
         }
@@ -32,21 +32,21 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_SNIPPET = gql`
-  mutation addSnippet($snippetText: String!, $snippetName: String!, $parentFolder: String) {
-    addSnippet(snippetText: $snippetText, snippetName: $snippetName, parentFolder: $parentFolder) {
+export const ADD_POST = gql`
+  mutation addPost($PostText: String!, $PostName: String!, $parentFolder: String) {
+    addPost(PostText: $PostText, PostName: $PostName, parentFolder: $parentFolder) {
       _id
-     snippetName
+     PostName
    
     }
   }
 `;
 
-export const UPDATE_SNIPPET = gql`
-  mutation updateSnippet($_id: ID!, $snippetText: String!, $snippetName: String!, $parentFolder: String) {
-    updateSnippet(_id: $_id, snippetText: $snippetText, snippetName: $snippetName, parentFolder: $parentFolder) {
+export const UPDATE_POST = gql`
+  mutation updatePost($_id: ID!, $PostText: String!, $PostName: String!, $parentFolder: String) {
+    updatePost(_id: $_id, PostText: $PostText, PostName: $PostName, parentFolder: $parentFolder) {
       _id
-     snippetName
+     PostName
    
     }
   }

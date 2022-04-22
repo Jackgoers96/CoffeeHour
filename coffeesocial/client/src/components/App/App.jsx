@@ -14,13 +14,14 @@ import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+
   return (
     <Router>
       <div className="App">
         <Header />
 
         <Switch>
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/Home" />
           <Route exact path="/Home" component={Home} />
           <Route exact path="/Login" component={Login} />
           <Route exact path="/SignUp" component={SignUp} />

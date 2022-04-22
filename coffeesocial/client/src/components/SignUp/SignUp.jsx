@@ -1,72 +1,71 @@
 import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
+
 } from "react-router-dom";
-import {Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container} from '@mui/material/';
+import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container} from '@mui/material/';
+import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 //TODO: set up ADD_USER reference from mutation.js file
-import {ADD_USER} from '../utils/mutations';
+import {ADD_USER} from '../../utils/mutations';
 //TODO: set up useMutation 
 import {useMutation} from '@apollo/react-hooks';
 // import "../App/App.css";
 // import "./SignUp.css";
 
-function SignUp() {
-//   const [addUser] = useMutation(ADD_USER);
+function SignUp()  {
+  const [addUser] = useMutation(ADD_USER);
 
   
-// const handleSubmit = async (event) => {
+const handleSubmit = async (event) => {
 
 
 
-//   event.preventDefault();
-//   const newData = new FormData(event.currentTarget);
-//   // eslint-disable-next-line no-console
-//   const submitData = {
-//     email: newData.get('email'),
-//     password: newData.get('password'),
-//   }
+  event.preventDefault();
+  const newData = new FormData(event.currentTarget);
+  // eslint-disable-next-line no-console
+  const submitData = {
+    email: newData.get('email'),
+    password: newData.get('password'),
+  }
 
   
 
-//   try {
-//       //const response = await createUser(userFormData);
-//       //set up useMutation hook
-//       const {data} = await addUser({ variables: submitData  });
-//       console.log(data);
+  try {
+      //const response = await createUser(userFormData);
+      //set up useMutation hook
+      const {data} = await addUser({ variables: submitData  });
+      console.log(data);
 
-//       if (!data) {
-//         throw new Error("something went wrong!");
-//       }
+      if (!data) {
+        throw new Error("something went wrong!");
+      }
 
-//       //pass in token recevied from mutation response
-//       Auth.login(data.addUser.token);
-//       //part of mutation use
-//       window.location.redirect("/");
-//     } catch (err) {
-//       console.error(err);
+      //pass in token recevied from mutation response
+      Auth.login(data.addUser.token);
+      //part of mutation use
+      window.location.redirect("/");
+    } catch (err) {
+      console.error(err);
      
-//     }
+    }
 
 
 
 
-//   };
+  };
 
 
 
 
 
   return (
-    <Router>
+<Router>
 <Box sx={{   gridColumnStart: 1, 
     gridColumnEnd: 13, 
     gridRowStart: 3,
-    gridRowEnd: 12}}>
+    gridRowEnd: 12}} >
 
 <Container component="main" maxWidth="xs">
 <CssBaseline />
@@ -86,8 +85,7 @@ sx={{
 <Typography component="h1" variant="h5">
   Sign Up
 </Typography>
-<Box>
-{/* <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}> */}
+<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
   <TextField
     color= "secondary"
     margin="normal"
@@ -131,10 +129,9 @@ sx={{
 </Box>
 
 </Container>
-
-
 </Box>
 </Router>
+
 );
 }
 export default SignUp;

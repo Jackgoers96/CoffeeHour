@@ -5,6 +5,7 @@ import Badge from "@mui/material/Badge";
 import LoginIcon from "@mui/icons-material/Login";
 import HomeIcon from "@mui/icons-material/Home";
 import SignUp from "../SignUp/SignUp";
+import LogoutIcon from '@mui/icons-material/Logout';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,6 +29,11 @@ function Header() {
           <Button varient="contained" href="./SignUp">
             <Badge id="loginBadge" color="primary">
               <LoginIcon />
+            </Badge>
+          </Button>
+          <Button varient="contained" href="./SignOut">
+            <Badge id="LogoutIcon" color="primary">
+              <LogoutIcon />
             </Badge>
           </Button>
         </div>

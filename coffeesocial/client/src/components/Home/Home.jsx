@@ -11,11 +11,13 @@ import "./Home.css";
 
 function Home() {
   return (
+    <Route>
     <div class="homePage">
       <p>Stuff</p>
 
       <p>More stuff</p>
     </div>
+    </Route>
   );
 }
 
