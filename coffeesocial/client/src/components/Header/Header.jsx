@@ -7,7 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import {AppBar} from '@mui/material'
 import Toolbar from '@mui/material/Toolbar'
 import {IconButton, Typography} from '@mui/material'
-import { DataGrid } from '@mui/material/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import SignUp from "../SignUp/SignUp";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {
