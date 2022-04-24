@@ -4,6 +4,10 @@ import Button from "@mui/material/Button";
 import Badge from "@mui/material/Badge";
 import LoginIcon from "@mui/icons-material/Login";
 import HomeIcon from "@mui/icons-material/Home";
+import {AppBar} from '@mui/material'
+import Toolbar from '@mui/material/Toolbar'
+import {IconButton, Typography} from '@mui/material'
+import { DataGrid } from '@mui/material/x-data-grid';
 import SignUp from "../SignUp/SignUp";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {
@@ -17,7 +21,17 @@ import "./Header.css";
 function Header() {
   return (
     <Router>
-      <div class="headerDiv">
+      <AppBar position="static">
+  <Toolbar variant="dense">
+    <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
+      <MenuIcon />
+    </IconButton>
+    <Typography variant="h6" color="inherit" component="div">
+      Photos
+    </Typography>
+  </Toolbar>
+</AppBar>
+      {/* <div class="headerDiv">
         <div>
           <Button varient="containted" href="./Home">
             <Badge id="HomeBadge" color="primary">
@@ -37,7 +51,7 @@ function Header() {
             </Badge>
           </Button>
         </div>
-      </div>
+      </div> */}
     </Router>
   );
 }
