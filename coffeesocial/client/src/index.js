@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,20 +6,27 @@ import {
   gql
 } from "@apollo/client";
 import './index.css';
-import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './components/App/App'
+const container = document.getElementById('root');
+
+
+
+
 
 const client = new ApolloClient({
   uri: 'localhost:3001',
   cache: new InMemoryCache()
 });
+const root = ReactDOM.createRoot(container);
 
-
-ReactDOM.render(
+root.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
-  document.getElementById('root')
+
 );
 
 // If you want to start measuring performance in your app, pass a function

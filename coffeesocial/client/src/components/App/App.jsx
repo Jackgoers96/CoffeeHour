@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+  React,
+
+} from "react";
 import Home from "../Home/Home";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SignUp from "../SignUp/SignUp";
 import Login from "../SignUp/Login";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
+
 
 function App() {
-
   return (
     <Router>
       <div className="App">
