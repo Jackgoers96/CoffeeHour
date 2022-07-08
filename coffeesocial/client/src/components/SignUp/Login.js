@@ -1,52 +1,52 @@
 import * as React from 'react';
-import {Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container} from '@mui/material/';
+import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container } from '@mui/material/';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Auth from '../../utils/auth'
-import {LOGIN_USER} from '../../utils/mutations';
-import {useMutation} from '@apollo/client';
+import { LOGIN_USER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
 
 
 
 
 function Login() {
 
-// const [login] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
-// const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
 
-//   event.preventDefault();
-//   const newData = new FormData(event.currentTarget);
-//   // eslint-disable-next-line no-console
-//   const submitData = {
-//     email: newData.get('email'),
-//     password: newData.get('password'),
-//   }
-
-  
-
-//   try {
-//       //const response = await createUser(userFormData);
-//       //set up useMutation hook
-//       const {data} = await login({ variables: submitData  });
-//       console.log(data);
-
-//       if (!data) {
-//         throw new Error("something went wrong!");
-//       }
-
-//       //pass in token recevied from mutation response
-//       Auth.login(data.login.token);
-//       //part of mutation use
-//       window.location.redirect("/");
-//     } catch (err) {
-//       console.error(err);
-     
-//     }
+    event.preventDefault();
+    const newData = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    const submitData = {
+      email: newData.get('email'),
+      password: newData.get('password'),
+    }
 
 
 
+    try {
+      //const response = await createUser(userFormData);
+      //set up useMutation hook
+      const { data } = await login({ variables: submitData });
+      console.log(data);
 
-//   };
+      if (!data) {
+        throw new Error("something went wrong!");
+      }
+
+      //pass in token recevied from mutation response
+      Auth.login(data.login.token);
+      //part of mutation use
+      window.location.redirect("/");
+    } catch (err) {
+      console.error(err);
+
+    }
+
+
+
+
+  };
 
 
 
@@ -56,11 +56,13 @@ function Login() {
 
   return (
 
-<Box sx={{   gridColumnStart: 1, 
-              gridColumnEnd: 13, 
-              gridRowStart: 3,
-              gridRowEnd: 12}}>
-    
+    <Box sx={{
+      gridColumnStart: 1,
+      gridColumnEnd: 13,
+      gridRowStart: 3,
+      gridRowEnd: 12
+    }}>
+
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -70,7 +72,7 @@ function Login() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-	   
+
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'primary.main' }}>
@@ -80,7 +82,7 @@ function Login() {
             Log in
           </Typography>
           <Box>
-          {/* <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}> */}
+            {/* <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}> */}
             <TextField
               margin="normal"
               required
@@ -90,7 +92,7 @@ function Login() {
               name="email"
               autoComplete="email"
               autoFocus
-              //onChange={handleChange}
+            //onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -101,9 +103,9 @@ function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
-              //onChange={handleChange}
+            //onChange={handleChange}
             />
-           
+
             <Button
               type="submit"
               fullWidth
@@ -112,9 +114,9 @@ function Login() {
             >
               Log In
             </Button>
-           
-             <Grid container sx={{display: "flex", justifyContent: "center"}}>
-            
+
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+
               <Grid item>
                 <Link href="/SignUp" variant="body2">
                   {"Don't have an account? Sign up!"}
@@ -125,9 +127,9 @@ function Login() {
         </Box>
 
       </Container>
-    
 
-</Box>
+
+    </Box>
   );
 }
 export default Login;

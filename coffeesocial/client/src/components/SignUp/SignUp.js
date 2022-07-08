@@ -1,41 +1,32 @@
 import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-
-} from "react-router-dom";
-import {Avatar, Button, CssBaseline, TextField, Link, Grid, Typography, Container} from '@mui/material/';
-import Box from '@mui/material/Box';
+import { Avatar, Button, CssBaseline, TextField, Link, Grid, Box, Typography, Container } from '@mui/material/';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Auth from '../../utils/auth';
+import AuthService from '../../utils/auth';
 //TODO: set up ADD_USER reference from mutation.js file
-import {ADD_USER} from '../../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
 //TODO: set up useMutation 
-import {useMutation} from '@apollo/react-hooks';
-// import "../App/App.css";
-// import "./SignUp.css";
+import { useMutation } from '@apollo/react-hooks';
 
-function SignUp()  {
+
+
+export default function SignIn() {
+
   const [addUser] = useMutation(ADD_USER);
 
-  
-const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
 
+    event.preventDefault();
+    const newData = new FormData(event.currentTarget);
+    // eslint-disable-next-line no-console
+    const submitData = {
+      email: newData.get('email'),
+      password: newData.get('password'),
+    }
 
-
-  event.preventDefault();
-  const newData = new FormData(event.currentTarget);
-  // eslint-disable-next-line no-console
-  const submitData = {
-    email: newData.get('email'),
-    password: newData.get('password'),
-  }
-
-  
-
-  try {
+    try {
       //const response = await createUser(userFormData);
       //set up useMutation hook
-      const {data} = await addUser({ variables: submitData  });
+      const { data } = await addUser({ variables: submitData });
       console.log(data);
 
       if (!data) {
@@ -43,95 +34,88 @@ const handleSubmit = async (event) => {
       }
 
       //pass in token recevied from mutation response
-      Auth.login(data.addUser.token);
+      AuthService.login(data.addUser.token);
       //part of mutation use
       window.location.redirect("/");
     } catch (err) {
       console.error(err);
-     
+
     }
-
-
-
-
   };
 
-
-
-
-
   return (
-<Router>
-<Box sx={{   gridColumnStart: 1, 
-    gridColumnEnd: 13, 
-    gridRowStart: 3,
-    gridRowEnd: 12}} >
 
-<Container component="main" maxWidth="xs">
-<CssBaseline />
-<Box
-sx={{
+    <Box sx={{
+      gridColumnStart: 1,
+      gridColumnEnd: 13,
+      gridRowStart: 3,
+      gridRowEnd: 12
+    }}>
 
-  marginTop: 8,
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
 
-}}
->
-<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-  <LockOutlinedIcon />
-</Avatar>
-<Typography component="h1" variant="h5">
-  Sign Up
-</Typography>
-<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-  <TextField
-    color= "secondary"
-    margin="normal"
-    required
-    fullWidth
-    id="email"
-    label="Email Address"
-    name="email"
-    autoComplete="email"
-    autoFocus
-  />
-  <TextField
-    color= "secondary"
-    margin="normal"
-    required
-    fullWidth
-    name="password"
-    label="Password"
-    type="password"
-    id="password"
-    autoComplete="current-password"
-  />
- 
-  <Button
-    type="submit"
-    fullWidth
-    variant="contained"
-    sx={{ mt: 3, mb: 2, bgcolor: 'secondary.main' }}
-  >
-    Sign Up
-  </Button>
-  <Grid container sx={{display: "flex", justifyContent: "center"}}>
-  
-    <Grid item>
-      <Link href="/login" variant="body2" color="secondary">
-        {"Already have an account? Log In!"}
-      </Link>
-    </Grid>
-  </Grid>
-</Box>
-</Box>
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
 
-</Container>
-</Box>
-</Router>
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign Up
+          </Typography>
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+            <TextField
+              color="secondary"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+            />
+            <TextField
+              color="secondary"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
 
-);
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2, bgcolor: 'secondary.main' }}
+            >
+              Sign Up
+            </Button>
+            <Grid container sx={{ display: "flex", justifyContent: "center" }}>
+
+              <Grid item>
+                <Link href="/login" variant="body2" color="secondary">
+                  {"Already have an account? Log In!"}
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+
+      </Container>
+
+
+    </Box>
+  );
 }
-export default SignUp;

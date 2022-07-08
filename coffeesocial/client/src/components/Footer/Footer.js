@@ -1,10 +1,10 @@
 import React from "react";
 import {
-  HashRouter as Router,
-  Switch,
+  BrowserRouter as Router,
+  Routes,
   Route,
   Link,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Badge from "@mui/material/Badge";
@@ -16,70 +16,71 @@ import RedditIcon from "@mui/icons-material/Reddit";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import "./Footer.css";
+import { Container } from "@mui/material";
 function Footer() {
   return (
-    <Route>
+    <Container>
       <div>
         <div id="footerDiv">
-          <div class="footerIcons">
+          <div className="footerIcons">
             <Button
               varient="containted"
               target="_blank"
               href="https://facebook.com"
               color="primary"
-              class="socials"
+              className="socials"
             >
               <Badge>
                 <FacebookIcon />
               </Badge>
             </Button>
           </div>
-          <div class="footerIcons">
+          <div className="footerIcons">
             <Button
               varient="contained"
               target="_blank"
               href="https://instagram.com"
               color="primary"
-              class="socials"
+              className="socials"
             >
               <Badge>
                 <InstagramIcon />
               </Badge>
             </Button>
           </div>
-          <div class="footerIcons">
+          <div className="footerIcons">
             <Button
               varient="containted"
               target="_blank"
               href="https://reddit.com"
               color="primary"
-              class="socials"
+              className="socials"
             >
               <Badge>
                 <RedditIcon />
               </Badge>
             </Button>
           </div>
-          <div class="footerIcons">
+          <div className="footerIcons">
             <Button
               varient="contained"
               target="_blank"
               href="https://twitter.com"
               color="primary"
-              class="socials"
+              className="socials"
             >
               <Badge>
                 <TwitterIcon />
               </Badge>
             </Button>
           </div>
-          <div class="footerIcons">
+          <div className="footerIcons">
             <Button
               varient="contained"
               target="_blank"
               href="https://linkedin.com"
               color="primary"
-              class="socials"
+              className="socials"
             >
               <Badge>
                 <LinkedInIcon />
@@ -88,7 +89,7 @@ function Footer() {
           </div>
         </div>
       </div>
-    </Route>
+    </Container>
   );
 }
 export default Footer;

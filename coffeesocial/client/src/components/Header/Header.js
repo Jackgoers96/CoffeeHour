@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import Badge from "@mui/material/Badge";
 import LoginIcon from "@mui/icons-material/Login";
 import HomeIcon from "@mui/icons-material/Home";
-import { AppBar } from "@mui/material";
+import { AppBar, Container } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import { IconButton, Typography } from "@mui/material";
 
@@ -13,15 +13,15 @@ import LogoutIcon from "@mui/icons-material/Logout";
 // import MenuIcon from "@mui/icons-material/Menu";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Link,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import "./Header.css";
 function Header() {
   return (
-    <Router>
+    <Container>
       <AppBar position="static">
         <Toolbar variant="dense">
           <IconButton
@@ -37,7 +37,7 @@ function Header() {
           </Typography>
         </Toolbar>
       </AppBar>
-      <div class="headerDiv">
+      <div className="headerDiv">
         <div>
           <Button varient="containted" href="./Home">
             <Badge id="HomeBadge" color="primary">
@@ -58,7 +58,8 @@ function Header() {
           </Button>
         </div>
       </div>
-    </Router>
+    </Container>
+
   );
 }
 export default Header;

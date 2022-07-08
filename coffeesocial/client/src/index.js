@@ -12,20 +12,12 @@ import ReactDOM from 'react-dom/client';
 import App from './components/App/App'
 const container = document.getElementById('root');
 
-
-
-
-
-const client = new ApolloClient({
-  uri: 'localhost:3001',
-  cache: new InMemoryCache()
-});
 const root = ReactDOM.createRoot(container);
 
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+
+  <App />
+
 
 );
 
